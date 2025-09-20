@@ -18,6 +18,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application files
 COPY main.py .
+COPY i18n.py .
 COPY .env .
 COPY Cards-jpg/ ./Cards-jpg/
 
@@ -36,6 +37,6 @@ EXPOSE 8080
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import main; print('Bot is healthy')" || exit 1
 
-# Default command - run in English mode
-# Can be overridden with: docker run tarot-bot python main.py -l ru
-CMD ["python", "main.py", "-l", "${TAROT_LANGUAGE:-en}"]
+# Default command
+# Language is controlled via TAROT_LANGUAGE env var (en|ru)
+CMD ["python", "main.py"]

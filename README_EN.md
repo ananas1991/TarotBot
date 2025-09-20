@@ -29,25 +29,25 @@ OPENAI_API_KEY=your_openai_api_key_here
 
 #### Option A: Single Bot (English by default)
 ```bash
-docker-compose --profile single up -d
+docker compose --profile single up -d
 ```
 
 #### Option B: Single Bot with Language Selection
 ```bash
 # English bot
-TAROT_LANGUAGE=en docker-compose --profile single up -d
+TAROT_LANGUAGE=en docker compose --profile single up -d
 
 # Russian bot
-TAROT_LANGUAGE=ru docker-compose --profile single up -d
+TAROT_LANGUAGE=ru docker compose --profile single up -d
 ```
 
 #### Option C: Both Languages Simultaneously
 ```bash
 # Run English bot
-docker-compose up -d tarot-bot-en
+docker compose up -d tarot-bot-en
 
 # Run Russian bot (optional)
-docker-compose --profile russian up -d tarot-bot-ru
+docker compose --profile russian up -d tarot-bot-ru
 ```
 
 ### 3. Manual Docker Commands
@@ -120,20 +120,20 @@ python main.py -l ru
 ### Logs and Monitoring
 ```bash
 # View logs
-docker-compose logs -f tarot-bot
+docker compose logs -f tarot-bot
 
 # View specific service logs
-docker-compose logs -f tarot-bot-en
-docker-compose logs -f tarot-bot-ru
+docker compose logs -f tarot-bot-en
+docker compose logs -f tarot-bot-ru
 ```
 
 ### Stopping Services
 ```bash
 # Stop all services
-docker-compose down
+docker compose down
 
 # Stop specific service
-docker-compose stop tarot-bot-en
+docker compose stop tarot-bot-en
 ```
 
 ## Troubleshooting

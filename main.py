@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import random
 import asyncio
 import argparse
@@ -46,19 +47,15 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Parse command line arguments
-parser = argparse.ArgumentParser(description='Tarot Bot with language support')
-parser.add_argument('-l', '--language', choices=['en', 'ru'], default='en',
-                    help='Language for the bot (en for English, ru for Russian)')
-args = parser.parse_args()
-
 # Configuration
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-LANGUAGE = args.language
+# Default language from environment (can be overridden by CLI in main())
+LANGUAGE = os.getenv("TAROT_LANGUAGE", "en")
 
-# Card image directory
-CARDS_DIR = "/root/TAROT/Cards-jpg"
+# Card image directory (defaults to project Cards-jpg inside container)
+BASE_DIR = Path(__file__).resolve().parent
+CARDS_DIR = os.getenv("CARDS_DIR", str(BASE_DIR / "Cards-jpg"))
 
 # Mapping between card names and image filenames
 CARD_IMAGE_MAP = {
@@ -679,6 +676,13 @@ async def setup_bot_commands(application):
 
 def main():
     """Start the bot"""
+    # Allow overriding language via CLI argument
+    global LANGUAGE
+    cli_parser = argparse.ArgumentParser(description='Tarot Bot with language support')
+    cli_parser.add_argument('-l', '--language', choices=['en', 'ru'], default=os.getenv('TAROT_LANGUAGE', 'en'),
+                        help='Language for the bot (en for English, ru for Russian)')
+    args = cli_parser.parse_args()
+    LANGUAGE = args.language
     # Create the Application
     application = Application.builder().token(TELEGRAM_BOT_TOKEN).build()
 

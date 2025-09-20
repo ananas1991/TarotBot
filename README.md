@@ -37,25 +37,25 @@ OPENAI_API_KEY=ваш_openai_api_key
 
 #### Вариант A: Один бот (по умолчанию EN)
 ```bash
-docker-compose --profile single up -d
+docker compose --profile single up -d
 ```
 
 #### Вариант B: Один бот с выбором языка
 ```bash
 # Английский
-TAROT_LANGUAGE=en docker-compose --profile single up -d
+TAROT_LANGUAGE=en docker compose --profile single up -d
 
 # Русский
-TAROT_LANGUAGE=ru docker-compose --profile single up -d
+TAROT_LANGUAGE=ru docker compose --profile single up -d
 ```
 
 #### Вариант C: Оба языка одновременно
 ```bash
 # Английский бот
-docker-compose up -d tarot-bot-en
+docker compose up -d tarot-bot-en
 
 # Русский бот (дополнительно)
-docker-compose --profile russian up -d tarot-bot-ru
+docker compose --profile russian up -d tarot-bot-ru
 ```
 
 ### 3) Полезные Docker‑команды
@@ -130,14 +130,14 @@ TAROT/
 ## Отладка и наблюдение
 ```bash
 # Логи сервиса
-docker-compose logs -f tarot-bot
+docker compose logs -f tarot-bot
 
 # Логи конкретного сервиса
-docker-compose logs -f tarot-bot-en
-docker-compose logs -f tarot-bot-ru
+docker compose logs -f tarot-bot-en
+docker compose logs -f tarot-bot-ru
 
 # Остановить все сервисы
-docker-compose down
+docker compose down
 ```
 
 ## Правовой дисклеймер
