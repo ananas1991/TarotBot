@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  tarot-bot-en:
+    build: .
+    container_name: tarot-bot-english
+    environment:
+      - TAROT_LANGUAGE=en
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - tarot-network
+
+  tarot-bot-ru:
+    build: .
+    container_name: tarot-bot-russian
+    environment:
+      - TAROT_LANGUAGE=ru
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - tarot-network
+    profiles:
+      - russian
+
+  # Single bot service (default)
+  tarot-bot:
+    build: .
+    container_name: tarot-bot-single
+    environment:
+      - TAROT_LANGUAGE=${TAROT_LANGUAGE:-en}
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - tarot-network
+    profiles:
+      - single
+
+networks:
+  tarot-network:
+    driver: bridge
+
+volumes:
+  logs:
+    driver: local

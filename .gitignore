@@ -1,0 +1,106 @@
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.envrc
+.python-version
+__pypackages__/
+
+# Packaging / distribution
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+pip-wheel-metadata/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Logs
+*.log
+logs/
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Type checking / lint caches
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+.pyright/
+.ruff_cache/
+
+# C extensions
+*.so
+
+# Jupyter
+.ipynb_checkpoints
+
+# Django/Flask common
+db.sqlite3
+db.sqlite3-journal
+instance/
+media/
+staticfiles/
+
+# Environment files and secrets
+.env
+.env.*
+*.env
+# Keep sample env files tracked
+!.env.example
+!.env.sample
+
+# Editor / IDE
+.vscode/
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Icon?
+.Spotlight-V100
+.Trashes
+*.swp
+*.swo
+
+# Docker (local overrides)
+docker-compose.override.yml
