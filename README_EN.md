@@ -180,9 +180,10 @@ The bot includes 78 authentic Rider-Waite tarot card images:
 
 ## License
 
-This project is for educational and entertainment purposes. Tarot card images are used under fair use for non-commercial purposes.
+MIT — see [LICENSE](LICENSE).
+
+Note: This project is for educational and entertainment purposes. Tarot card images are used under fair use for non-commercial purposes.
 
 ---
 
 🔮 May the cards guide you on your journey! ✨
-
